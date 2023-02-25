@@ -1,0 +1,37 @@
+{
+  "name": "vid_2_ascii_convtr",
+  "version": "0.1.0",
+  "description": "Video to ASCII Converter program",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "dev": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suvel/vid_2_ASCII_convtr.git"
+  },
+  "keywords": [
+    "video",
+    "ascii",
+    "real-time",
+    "nodejs"
+  ],
+  "author": "Suvel Rathneswar and Open AI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/suvel/vid_2_ASCII_convtr/issues"
+  },
+  "homepage": "https://github.com/suvel/vid_2_ASCII_convtr#readme",
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "ascii-art": "^2.8.5",
+    "blessed-contrib": "^4.11.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "jimp": "^0.22.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
