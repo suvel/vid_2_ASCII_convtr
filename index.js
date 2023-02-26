@@ -1,11 +1,12 @@
 const video = require('./src/assets/video');
+const ascii = require('./src/assets/ascii');
 
-const processingFrameCount = 3;
+const processingFrameCount = 2;
 
 async function main() {
   for (let frame = 0; frame <= processingFrameCount; frame++) {
-    //converts video to image(png), this is processed and stored in folder frames under src
-    await video.videoToFrames(frame);
+    const savedFrameFullPath = await video.videoToFrames(frame);
+    ascii.getGrayScaledImg(savedFrameFullPath, frame);
   }
 }
 
