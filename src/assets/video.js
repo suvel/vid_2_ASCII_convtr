@@ -20,7 +20,7 @@ function videoToFrames(frameNumber) {
         console.log(
           `(i) Frame ${frameNumber} stored at ${defaultFramesFolder}/${destinationImgfileName}`
         );
-        resolve();
+        resolve(`${defaultFramesFolder}/${destinationImgfileName}`);
       })
       .on('error', function (err) {
         console.error(err);
@@ -37,4 +37,7 @@ function videoToFrames(frameNumber) {
 
 module.exports = {
   videoToFrames,
+  defaultFramesFolder,
+  imgFormate,
+  imgPreFix
 };
