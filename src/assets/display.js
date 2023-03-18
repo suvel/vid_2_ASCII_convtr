@@ -1,7 +1,27 @@
 const blessed = require('blessed');
 const contrib = require('blessed-contrib');
 
-const screen = blessed.screen({ smartCSR: true, fullUnicode: true });
+const screen = blessed.screen({
+  smartCSR: true,
+});
+
+const asciiBox = blessed.box({
+  top: 'center',
+  left: 'center',
+  width: '80%',
+  height: '80%',
+  content: '',
+  tags: true,
+  border: {
+    type: 'line',
+  },
+  style: {
+    fg: 'white',
+    border: {
+      fg: '#f0f0f0',
+    },
+  },
+});
 
 const log = contrib.log({
   fg: 'green',
@@ -9,16 +29,14 @@ const log = contrib.log({
   label: 'Server Log',
 });
 
-function printASCII(asciiData) {
-  return new Promise((resolve, reject) => {
-    asciiData.split('\n').forEach((line) => {
-      log.log(line);
-    });
-    screen.append(log);
-    // screen.render();
-    console.log('screen rendered');
-    resolve();
-  });
+function createDisplay() {
+  screen.append(asciiBox);
+  screen.render();
 }
 
-module.exports = { printASCII, screen };
+function printASCII(asciiData) {
+  asciiBox.setContent(asciiData);
+  screen.render();
+}
+
+module.exports = { printASCII, screen,createDisplay };
